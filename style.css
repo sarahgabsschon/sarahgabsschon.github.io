@@ -1,13 +1,31 @@
+/* =========================================================
+   1. GLOBAL VARIABLES
+   ---------------------------------------------------------
+   These are reusable values for the whole website.
+
+   If you want to change the main background, text color,
+   green accent, or maximum width, you can do it here once.
+   ========================================================= */
+
 :root {
-  --bg: #f5f3ee;
-  --text: #1d1d1b;
-  --muted: #6f6c65;
-  --line: #d8d4cb;
+  --background: #f5f3ee;
+  --text: #1c1c1a;
+  --muted: #686862;
   --accent: #315c4b;
+  --line: #d8d5cd;
   --card: #ebe8df;
-  --white: #ffffff;
-  --max-width: 1100px;
+
+  /* Maximum width of the content area */
+  --max-width: 1180px;
 }
+
+
+/* =========================================================
+   2. BASIC RESET
+   ---------------------------------------------------------
+   Browsers add default margins/padding.
+   This removes them so we control the spacing ourselves.
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -15,402 +33,741 @@
   padding: 0;
 }
 
+
+/* Smooth scrolling when clicking navigation links */
 html {
   scroll-behavior: smooth;
 }
 
+
+/* =========================================================
+   3. BODY
+   ---------------------------------------------------------
+   Controls the basic appearance of the whole website.
+   ========================================================= */
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
+  background: var(--background);
   color: var(--text);
-  line-height: 1.6;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  line-height: 1.5;
 }
 
+
+/* Remove the default blue underline from links */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+
+/* Green when hovering over links */
 a:hover {
   color: var(--accent);
 }
 
+
+/* =========================================================
+   4. GENERAL CONTENT WIDTH
+   ---------------------------------------------------------
+   Anything inside .container will:
+   - never become wider than 1180px
+   - stay centered
+   - leave space around the edges
+   ========================================================= */
+
 .container {
-  width: min(90%, var(--max-width));
+  width: min(88%, var(--max-width));
   margin: 0 auto;
 }
 
-/* Navigation */
+
+/* =========================================================
+   5. NAVIGATION
+   ========================================================= */
 
 header {
   border-bottom: 1px solid var(--line);
+  background: var(--background);
+
+  /* Makes navigation remain visible while scrolling */
   position: sticky;
   top: 0;
-  background: rgba(245, 243, 238, 0.95);
-  z-index: 10;
+  z-index: 100;
 }
 
+
 nav {
-  width: min(90%, var(--max-width));
+  width: min(92%, 1400px);
   margin: 0 auto;
-  min-height: 72px;
+
+  height: 68px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+
+/* SARAH. in upper-left corner */
 .logo {
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
 
+
+/* Work / About / Outside the lab / Contact */
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 38px;
+
   font-size: 0.9rem;
 }
 
-/* Hero */
+
+/* =========================================================
+   6. HERO / FIRST SCREEN
+   ---------------------------------------------------------
+   This is the section containing:
+
+   MICROBIOLOGY...
+   I like figuring things out.
+   introductory paragraph
+   Explore my work
+   ========================================================= */
 
 .hero {
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  padding: 100px 0;
+  /* We DON'T force the hero to fill the entire screen anymore */
+  min-height: auto;
+
+  padding:
+    105px 0
+    90px;
 }
 
+
+/* Small green text above the headline */
 .eyebrow {
   color: var(--accent);
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
+
+  font-size: 0.72rem;
   font-weight: 700;
-  margin-bottom: 24px;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  margin-bottom: 22px;
 }
+
+
+/* =========================================================
+   MAIN HEADLINE
+
+   clamp(MINIMUM, RESPONSIVE SIZE, MAXIMUM)
+
+   So here:
+   - never smaller than 3rem
+   - usually about 6% of screen width
+   - never larger than 5.5rem
+
+   Your previous maximum was much larger.
+   ========================================================= */
 
 .hero h1 {
-  max-width: 850px;
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  max-width: 720px;
+
+  font-size: clamp(3rem, 6vw, 5.5rem);
+
   line-height: 0.95;
-  letter-spacing: -0.06em;
-  margin-bottom: 35px;
+  letter-spacing: -0.055em;
+
+  margin-bottom: 32px;
 }
 
+
+/*
+   This is optional styling if the word "figuring"
+   is italic in your HTML.
+*/
+
+.hero h1 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+
+/* Intro paragraph under the headline */
 .hero-text {
-  max-width: 650px;
-  font-size: 1.25rem;
+  max-width: 600px;
+
+  font-size: 1.08rem;
+  line-height: 1.65;
+
   color: var(--muted);
 }
+
+
+/* =========================================================
+   HERO LINKS
+   ========================================================= */
 
 .hero-links {
-  margin-top: 40px;
   display: flex;
-  gap: 25px;
+  gap: 28px;
   flex-wrap: wrap;
+
+  margin-top: 36px;
 }
 
+
+/* Underlined editorial-style links */
 .button {
   display: inline-block;
-  border-bottom: 1px solid var(--text);
+
+  font-size: 0.9rem;
+
   padding-bottom: 4px;
+
+  border-bottom: 1px solid var(--text);
 }
+
+
+/* =========================================================
+   SMALL INFORMATION BELOW HERO
+   ---------------------------------------------------------
+   Example:
+   Based in Zürich
+   Biology × Data × Curiosity
+   ========================================================= */
 
 .meta {
-  margin-top: 80px;
   display: flex;
-  gap: 50px;
+  gap: 40px;
+
+  margin-top: 55px;
+
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
-/* Sections */
+
+/* =========================================================
+   7. ALL NORMAL SECTIONS
+   ---------------------------------------------------------
+   Every <section> gets consistent spacing.
+   ========================================================= */
 
 section {
-  padding: 110px 0;
+  padding: 90px 0;
+
   border-top: 1px solid var(--line);
 }
 
+
+/* Small green heading like:
+   SELECTED WORK
+   ABOUT
+   ETC.
+*/
 .section-label {
+  margin-bottom: 28px;
+
   color: var(--accent);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+
+  font-size: 0.7rem;
   font-weight: 700;
-  margin-bottom: 45px;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
+
+/* Large heading at beginning of a section */
 .section-heading {
-  max-width: 850px;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  max-width: 760px;
+
+  font-size: clamp(2.3rem, 4.5vw, 4.2rem);
+
   line-height: 1;
   letter-spacing: -0.045em;
-  margin-bottom: 55px;
+
+  margin-bottom: 50px;
 }
 
-/* Work */
+
+/* =========================================================
+   8. PROJECT LIST
+   ---------------------------------------------------------
+   This controls the summary list of your projects.
+   ========================================================= */
 
 .project-list {
-  display: grid;
-  gap: 0;
+  border-top: 1px solid var(--line);
 }
+
+
+/*
+   Each project is arranged in three columns:
+
+   01 | project title/description | type
+*/
 
 .project-card {
   display: grid;
-  grid-template-columns: 100px 1fr auto;
-  gap: 30px;
-  align-items: start;
-  padding: 35px 0;
-  border-top: 1px solid var(--line);
-}
 
-.project-card:last-child {
+  grid-template-columns:
+    70px
+    minmax(0, 1fr)
+    160px;
+
+  gap: 30px;
+
+  align-items: start;
+
+  padding: 30px 0;
+
   border-bottom: 1px solid var(--line);
 }
 
+
+/* 01, 02, 03... */
 .project-number {
   color: var(--muted);
-  font-size: 0.85rem;
+
+  font-size: 0.75rem;
 }
 
+
+/* Project title */
 .project-card h3 {
-  font-size: 1.7rem;
   margin-bottom: 8px;
+
+  font-size: 1.45rem;
+  font-weight: 600;
 }
 
+
+/* Project summary */
 .project-card p {
+  max-width: 620px;
+
   color: var(--muted);
-  max-width: 600px;
+
+  font-size: 0.95rem;
 }
 
+
+/* MSc thesis / machine learning / etc */
 .project-type {
   color: var(--accent);
-  font-size: 0.8rem;
-  white-space: nowrap;
+
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-/* About */
+
+/* =========================================================
+   9. ABOUT SECTION
+   ---------------------------------------------------------
+   Left side = story
+   Right side = facts
+   ========================================================= */
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 100px;
+
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(250px, 0.6fr);
+
+  gap: 90px;
 }
 
+
+/* Main biography text */
 .about-text {
-  font-size: 1.35rem;
-  max-width: 700px;
+  max-width: 650px;
+
+  font-size: 1.15rem;
+  line-height: 1.7;
 }
 
+
+/* Adds space between paragraphs */
 .about-text p + p {
-  margin-top: 25px;
+  margin-top: 22px;
 }
 
+
+/* Right-hand information column */
 .facts {
   display: grid;
-  gap: 30px;
+  gap: 28px;
 }
 
+
+/* Line above each fact */
 .fact {
+  padding-top: 14px;
+
   border-top: 1px solid var(--line);
-  padding-top: 15px;
 }
 
+
+/* Tiny heading such as EDUCATION */
 .fact-label {
-  color: var(--muted);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
   margin-bottom: 5px;
+
+  color: var(--muted);
+
+  font-size: 0.68rem;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-/* Capabilities */
+
+/* =========================================================
+   10. CAPABILITIES
+   ---------------------------------------------------------
+   Experimental biology
+   Biological data
+   Computational work
+   etc.
+   ========================================================= */
 
 .capabilities {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 }
 
+
+/* Individual skill block */
 .capability {
-  background: var(--bg);
-  padding: 35px;
+  min-height: 180px;
+
+  padding: 28px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
+
 
 .capability h3 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+
+  font-size: 1rem;
 }
+
 
 .capability p {
   color: var(--muted);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-/* Project details */
+
+/* =========================================================
+   11. DETAILED PROJECT SECTIONS
+   ========================================================= */
 
 .project-detail {
-  max-width: 900px;
+  max-width: 850px;
 }
 
+
+/* Space between one full project and the next */
 .project-detail + .project-detail {
-  margin-top: 120px;
-  padding-top: 100px;
+  margin-top: 100px;
+  padding-top: 90px;
+
   border-top: 1px solid var(--line);
 }
 
+
+/* Large project title */
 .project-detail h3 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  max-width: 700px;
+
+  margin-bottom: 26px;
+
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+
   line-height: 1;
-  margin-bottom: 30px;
   letter-spacing: -0.04em;
 }
 
+
+/* Introductory project paragraph */
 .project-detail .lead {
-  font-size: 1.3rem;
+  max-width: 700px;
+
+  margin-bottom: 40px;
+
   color: var(--muted);
-  margin-bottom: 45px;
+
+  font-size: 1.15rem;
+  line-height: 1.65;
 }
+
 
 .project-detail h4 {
-  margin: 35px 0 10px;
+  margin:
+    32px 0
+    10px;
+
+  font-size: 0.85rem;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
+
 
 .project-detail p {
-  max-width: 750px;
+  max-width: 700px;
 }
 
+
+/* =========================================================
+   12. PROJECT PROCESS / TIMELINE
+   ========================================================= */
+
 .timeline {
-  margin-top: 40px;
-  display: grid;
-  gap: 20px;
+  margin-top: 38px;
 }
+
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 25px;
+
+  grid-template-columns:
+    70px
+    minmax(0, 1fr);
+
+  gap: 20px;
+
+  padding: 18px 0;
+
   border-top: 1px solid var(--line);
-  padding-top: 20px;
 }
+
 
 .timeline-number {
   color: var(--accent);
+
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
+
+/* DOI or external project link */
 .project-link {
   display: inline-block;
-  margin-top: 30px;
+
+  margin-top: 28px;
+
+  padding-bottom: 3px;
+
   color: var(--accent);
+
   border-bottom: 1px solid var(--accent);
 }
 
-/* Outside lab */
+
+/* =========================================================
+   13. OUTSIDE THE LAB
+   ========================================================= */
 
 .outside-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
 }
+
 
 .outside-card {
-  background: var(--card);
-  padding: 30px;
   min-height: 180px;
+
+  padding: 26px;
+
+  background: var(--card);
 }
 
+
 .outside-card h3 {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+
+  font-size: 1rem;
 }
+
 
 .outside-card p {
   color: var(--muted);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-/* Contact */
+
+/* =========================================================
+   14. CONTACT
+   ========================================================= */
 
 .contact {
-  padding-bottom: 140px;
+  padding-bottom: 110px;
 }
 
+
+/* Big contact heading */
 .contact h2 {
-  max-width: 900px;
-  font-size: clamp(3rem, 8vw, 7rem);
+  max-width: 750px;
+
+  margin-bottom: 40px;
+
+  font-size: clamp(2.7rem, 5vw, 5rem);
+
   line-height: 0.95;
-  letter-spacing: -0.06em;
-  margin-bottom: 50px;
+  letter-spacing: -0.05em;
 }
+
 
 .contact-links {
   display: flex;
   gap: 30px;
+
   flex-wrap: wrap;
 }
 
-/* Footer */
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
 
 footer {
+  padding: 24px 0;
+
   border-top: 1px solid var(--line);
-  padding: 25px 0;
+
   color: var(--muted);
-  font-size: 0.8rem;
+
+  font-size: 0.75rem;
 }
 
-/* Mobile */
 
-@media (max-width: 750px) {
+/* =========================================================
+   16. TABLET / SMALL SCREEN
+   ---------------------------------------------------------
+   Anything below 800px wide uses these rules.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
   .nav-links {
-    display: none;
+    gap: 18px;
   }
+
 
   .hero {
-    min-height: 80vh;
-    padding: 70px 0;
+    padding:
+      80px 0
+      70px;
   }
+
 
   .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(3rem, 12vw, 4.8rem);
   }
 
-  .meta {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 50px;
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
   }
 
-  section {
-    padding: 75px 0;
+
+  .capabilities {
+    grid-template-columns:
+      repeat(2, 1fr);
   }
+
+
+  .outside-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
 
   .project-card {
-    grid-template-columns: 50px 1fr;
-    gap: 15px;
+    grid-template-columns:
+      50px
+      minmax(0, 1fr);
   }
+
 
   .project-type {
     grid-column: 2;
   }
+}
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 60px;
+
+/* =========================================================
+   17. PHONE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+  /* Hide navigation links to prevent crowding */
+  .nav-links {
+    display: none;
   }
+
+
+  .hero {
+    padding:
+      60px 0
+      55px;
+  }
+
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+
+  section {
+    padding:
+      65px 0;
+  }
+
+
+  .meta {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
 
   .capabilities {
     grid-template-columns: 1fr;
   }
 
-  .outside-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .timeline-item {
-    grid-template-columns: 60px 1fr;
-  }
-}
-
-@media (max-width: 500px) {
-  .hero h1 {
-    font-size: 3.2rem;
-  }
 
   .outside-grid {
     grid-template-columns: 1fr;

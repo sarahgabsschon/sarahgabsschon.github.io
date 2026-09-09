@@ -8,14 +8,19 @@
    ========================================================= */
 
 :root {
-  --background: #f5f3ee;
-  --text: #1c1c1a;
-  --muted: #686862;
-  --accent: #315c4b;
-  --line: #d8d5cd;
-  --card: #ebe8df;
+  --background: #f3f1eb;
 
-  /* Maximum width of the content area */
+  --text: #181918;
+
+  --muted: #666963;
+
+  /* Slightly cooler, more archival/scientific */
+  --accent: #355f52;
+
+  --line: #d4d1c8;
+
+  --card: #e7e4db;
+
   --max-width: 1180px;
 }
 

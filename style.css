@@ -798,3 +798,62 @@ footer {
 
   color: var(--muted);
 }
+
+/* =====================================================
+   MICROSCOPY IMAGE
+   Small editorial figure below the introduction.
+   ===================================================== */
+
+.hero-image {
+  /* About half the width of the left column */
+  width: 55%;
+
+  /* Space between text and image */
+  margin: 45px 0 0 0;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  /* Slightly subdued until interacted with */
+  opacity: 0.75;
+  filter: grayscale(100%);
+
+  transition:
+    opacity 0.4s ease,
+    filter 0.4s ease,
+    transform 0.4s ease;
+}
+
+
+/* Bring the microscopy image to life on hover */
+.hero-image:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+
+/* Small editorial/scientific caption */
+.hero-image figcaption {
+  margin-top: 8px;
+
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+
+/* On phones, let the image use more space */
+@media (max-width: 750px) {
+
+  .hero-image {
+    width: 75%;
+    margin-top: 35px;
+  }
+
+}

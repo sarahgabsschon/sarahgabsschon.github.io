@@ -845,25 +845,40 @@ footer {
 /* =====================================================
    HERO IMAGE TEASERS
    Three research images used as visual project previews.
+
+   Their widths are deliberately slightly unequal.
+   This makes the row feel more like an editorial/archive
+   layout and less like three identical cards.
    ===================================================== */
 
 .hero-teasers {
   display: grid;
 
-  /* Three equal visual columns */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* E. coli slightly wider,
+     Salmonella central,
+     histology slightly narrower */
+  grid-template-columns:
+    1.05fr
+    1fr
+    0.95fr;
 
+  /* Space between images */
   gap: 14px;
 
-  /* Space between introduction and images */
+  /* Space between intro paragraph and image row */
   margin-top: 46px;
 }
 
 
-/* Each image + caption acts as a link */
+/* =====================================================
+   INDIVIDUAL IMAGE TEASER
+   Each image + caption acts as a project link.
+   ===================================================== */
+
 .hero-teaser {
   display: block;
 
+  /* Prevent grid items from overflowing their column */
   min-width: 0;
 
   color: inherit;
@@ -873,85 +888,112 @@ footer {
 /* -----------------------------------------------------
    IMAGE WINDOW
 
-   The wrapper lets us crop all three sources into
-   a consistent editorial proportion.
+   All source images are cropped into the same basic
+   scientific-figure proportion.
    ----------------------------------------------------- */
 
 .hero-teaser-media {
   position: relative;
 
+  /* Anything outside the image window is hidden */
   overflow: hidden;
 
   width: 100%;
 
-  /* Wide scientific-figure proportion */
+  /* Consistent wide figure proportion */
   aspect-ratio: 16 / 10;
 
   background: var(--card);
 }
 
 
-/* Actual image */
+/* =====================================================
+   IMAGE TREATMENT
+
+   All three images receive the same muted,
+   green-grey archive treatment by default.
+
+   Hovering reveals the original scientific image.
+   ===================================================== */
+
 .hero-teaser img {
   display: block;
 
   width: 100%;
   height: 100%;
 
+  /* Crop rather than stretch the source image */
   object-fit: cover;
 
+  /* Unified archive treatment */
+  filter:
+    grayscale(100%)
+    sepia(18%)
+    hue-rotate(95deg)
+    saturate(55%)
+    contrast(95%);
+
+  opacity: 0.9;
+
+  /* Subtle transition back to original image */
   transition:
-    transform 0.45s ease,
-    opacity 0.45s ease;
+    filter 0.4s ease,
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
 
-/* Very restrained interaction */
+/* -----------------------------------------------------
+   IMAGE HOVER
+
+   Original colors return when the visitor interacts
+   with an image.
+   ----------------------------------------------------- */
+
 .hero-teaser:hover img {
-  transform: scale(1.025);
-}
+  filter: none;
 
-
-/* -----------------------------------------------------
-   E. COLI
-
-   Keep it mostly monochrome.
-   ----------------------------------------------------- */
-
-.hero-teaser:first-child img {
-  filter: grayscale(100%);
-  opacity: 0.88;
-}
-
-.hero-teaser:first-child:hover img {
   opacity: 1;
+
+  /* Very restrained zoom */
+  transform: scale(1.015);
 }
 
 
-/* -----------------------------------------------------
-   HISTOLOGY
+/* =====================================================
+   HISTOLOGY IMAGE
 
-   Zoom slightly so the black export header at the top
-   is cropped out of the teaser.
-   ----------------------------------------------------- */
+   This image needs a slightly different crop because
+   of the original source composition.
+   ===================================================== */
 
 .hero-teaser-histology img {
+  /* Slight zoom */
   transform: scale(1.16);
 
+  /* Moves the visible crop slightly downward */
   object-position: center 65%;
 }
 
+
+/* Keep the histology zoom while hovering */
 .hero-teaser-histology:hover img {
-  transform: scale(1.19);
+  filter: none;
+
+  opacity: 1;
+
+  transform: scale(1.18);
 }
 
 
-/* -----------------------------------------------------
+/* =====================================================
    IMAGE CAPTIONS
-   Small metadata rather than decorative labels.
-   ----------------------------------------------------- */
+
+   Small, restrained metadata below each image.
+   ===================================================== */
 
 .hero-teaser-caption {
+  /* Distance between image and caption */
   margin-top: 8px;
 
   color: var(--muted);

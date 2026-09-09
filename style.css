@@ -778,47 +778,62 @@ footer {
    HERO IMAGE
    ===================================================== */
 
-.hero-image {
-  margin: 55px 0 70px;
-  max-width: 760px;
+/* =====================================================
+   HERO GRID
+   Introduction on left, academic facts on right.
+   ===================================================== */
+
+.hero-grid {
+  display: grid;
+
+  /* Left column is wider than the degree column */
+  grid-template-columns: minmax(0, 1.6fr) minmax(240px, 0.65fr);
+
+  gap: 90px;
+  align-items: start;
 }
 
-.hero-image img {
-  display: block;
-  width: 100%;
-  height: auto;
+
+/* =====================================================
+   RIGHT-HAND DEGREE COLUMN
+   ===================================================== */
+
+.hero-facts {
+  /* Creates the vertical editorial divider */
+  border-left: 1px solid var(--line);
+
+  padding-left: 28px;
+  padding-top: 8px;
 }
 
-.hero-image figcaption {
-  margin-top: 10px;
 
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  color: var(--muted);
+/* Space between MSc, BSc, and Languages */
+.hero-facts .fact {
+  margin-bottom: 28px;
 }
+
 
 /* =====================================================
    MICROSCOPY IMAGE
-   Small editorial figure below the introduction.
+   Small image below the left-column introduction.
    ===================================================== */
 
 .hero-image {
-  /* About half the width of the left column */
-  width: 55%;
+  /* Never allow the image to become huge */
+  width: min(100%, 320px);
 
-  /* Space between text and image */
-  margin: 45px 0 0 0;
+  margin-top: 40px;
 }
 
+
+/* Actual image */
 .hero-image img {
   display: block;
+
   width: 100%;
   height: auto;
 
-  /* Slightly subdued until interacted with */
-  opacity: 0.75;
+  opacity: 0.78;
   filter: grayscale(100%);
 
   transition:
@@ -828,15 +843,15 @@ footer {
 }
 
 
-/* Bring the microscopy image to life on hover */
+/* Subtle interaction */
 .hero-image:hover img {
   opacity: 1;
   filter: grayscale(0%);
-  transform: scale(1.02);
+  transform: scale(1.015);
 }
 
 
-/* Small editorial/scientific caption */
+/* Scientific/editorial caption */
 .hero-image figcaption {
   margin-top: 8px;
 
@@ -848,12 +863,28 @@ footer {
 }
 
 
-/* On phones, let the image use more space */
+/* =====================================================
+   MOBILE
+   Stack only when the screen is actually narrow.
+   ===================================================== */
+
 @media (max-width: 750px) {
 
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .hero-facts {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+
+    padding-left: 0;
+    padding-top: 25px;
+  }
+
   .hero-image {
-    width: 75%;
-    margin-top: 35px;
+    width: min(75%, 300px);
   }
 
 }

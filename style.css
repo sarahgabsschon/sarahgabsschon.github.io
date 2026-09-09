@@ -202,17 +202,32 @@ nav {
 }
 
 
-/* Intro paragraph under the headline */
-.hero-text {
-  max-width: 400px;
+/* =========================================================
+   HERO INTRO TEXT
+   Wider column + justified/block text
+   ========================================================= */
 
-  font-size: 1.02rem;
-  line-height: 1.55;
+.hero-text {
+  /* Width of the text block */
+  max-width: 620px;
+
+  font-size: 1.08rem;
+  line-height: 1.6;
 
   color: var(--muted);
+
+  /* Creates the block-text / justified appearance */
+  text-align: justify;
+
+  /* Prevents the final line from being stretched */
+  text-align-last: left;
 }
 
 
+/* Distance between the two intro paragraphs */
+.hero-text + .hero-text {
+  margin-top: 14px;
+}
 /* =========================================================
    HERO LINKS
    ========================================================= */
@@ -342,35 +357,6 @@ section {
   font-size: 0.75rem;
 }
 
-
-/* Project title */
-.project-card h3 {
-  margin-bottom: 12px;
-
-  font-size: 1.45rem;
-  font-weight: 380;
-}
-
-
-/* Project summary */
-.project-card p {
-  max-width: 480px;
-
-  color: var(--muted);
-
-  font-size: 0.95rem;
-}
-
-
-/* MSc thesis / machine learning / etc */
-.project-type {
-  color: var(--accent);
-
-  font-size: 0.92rem;
-  line-height: 1.55
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
 /* Project title */
 .project-card h3 {
   margin-bottom: 12px;

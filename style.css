@@ -513,7 +513,7 @@ section {
    ========================================================= */
 
 .project-detail {
-  max-width: 850px;
+  max-width: 1100px;
 }
 
 
@@ -599,6 +599,107 @@ section {
   max-width: 620px;
 
   line-height: 1.55;
+}
+
+/* =========================================================
+   PROJECT DETAIL — TWO-COLUMN MEDIA LAYOUT
+
+   Used for Project 04.
+
+   Written project details appear on the left.
+   The microscopy animation appears on the right.
+   ========================================================= */
+
+.project-detail-grid {
+  display: grid;
+
+  /* Text column + slightly smaller figure column */
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(320px, 0.9fr);
+
+  /* Space between text and figure */
+  gap: 70px;
+
+  align-items: start;
+
+  /* Space below the introductory paragraph */
+  margin-top: 36px;
+}
+
+
+/* =========================================================
+   LEFT TEXT COLUMN
+   ========================================================= */
+
+.project-detail-text {
+  min-width: 0;
+}
+
+
+/* Remove unnecessary extra space above the first heading
+   because the grid itself already provides that spacing */
+.project-detail-text h4:first-child {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   MICROSCOPY FIGURE
+   ========================================================= */
+
+.project-media {
+  margin: 0;
+}
+
+
+/* Display the GIF at its natural proportions */
+.project-media img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  /* No filters — preserve the microscopy image */
+  filter: none;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   FIGURE CAPTION
+   Small research-archive style metadata.
+   ========================================================= */
+
+.project-media figcaption {
+  margin-top: 9px;
+
+  color: var(--muted);
+
+  font-size: 0.65rem;
+  line-height: 1.4;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MOBILE
+
+   Below 800px, the two columns become one.
+   The GIF appears underneath the project text.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .project-detail-grid {
+    grid-template-columns: 1fr;
+
+    gap: 32px;
+  }
+
 }
 
 /* =========================================================

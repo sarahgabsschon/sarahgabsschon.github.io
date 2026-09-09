@@ -937,14 +937,14 @@ footer {
   background: var(--card);
 }
 
-
 /* =====================================================
    IMAGE TREATMENT
 
-   All three images receive the same muted,
-   green-grey archive treatment by default.
+   Keep the original scientific colors visible.
 
-   Hovering reveals the original scientific image.
+   The images are only slightly softened so that the
+   different microscopy/histology palettes still sit
+   comfortably together in the layout.
    ===================================================== */
 
 .hero-teaser img {
@@ -956,62 +956,68 @@ footer {
   /* Crop rather than stretch the source image */
   object-fit: cover;
 
-  /* Unified archive treatment */
+  /* Very subtle treatment:
+     colors remain recognizable and scientifically faithful */
   filter:
-    grayscale(100%)
-    sepia(18%)
-    hue-rotate(95deg)
-    saturate(55%)
-    contrast(95%);
+    saturate(88%)
+    contrast(97%)
+    brightness(99%);
 
-  opacity: 0.9;
+  opacity: 1;
 
-  /* Subtle transition back to original image */
+  /* Only a restrained change on hover */
   transition:
-    filter 0.4s ease,
-    opacity 0.4s ease,
-    transform 0.4s ease;
+    filter 0.35s ease,
+    transform 0.35s ease;
 }
 
 
 /* -----------------------------------------------------
    IMAGE HOVER
 
-   Original colors return when the visitor interacts
-   with an image.
+   No color transformation.
+   Just a tiny increase in clarity and scale.
    ----------------------------------------------------- */
 
 .hero-teaser:hover img {
-  filter: none;
+  filter:
+    saturate(96%)
+    contrast(100%)
+    brightness(100%);
 
-  opacity: 1;
-
-  /* Very restrained zoom */
-  transform: scale(1.015);
+  /* Very small zoom */
+  transform: scale(1.012);
 }
 
 
 /* =====================================================
    HISTOLOGY IMAGE
 
-   This image needs a slightly different crop because
-   of the original source composition.
+   Keep the special crop needed for the histology source.
    ===================================================== */
 
 .hero-teaser-histology img {
-  /* Slight zoom */
+  /* Zoom prevents unwanted material at the image edge
+     from appearing in the teaser */
   transform: scale(1.16);
 
-  /* Moves the visible crop slightly downward */
+  /* Positions the visible tissue area */
   object-position: center 65%;
 }
 
 
-/* Keep the histology zoom while hovering */
-.hero-teaser-histology:hover img {
-  filter: none;
+/* -----------------------------------------------------
+   HISTOLOGY HOVER
 
-  opacity: 1;
+   Preserve the existing crop while adding only a tiny
+   amount of movement.
+   ----------------------------------------------------- */
+
+.hero-teaser-histology:hover img {
+  filter:
+    saturate(96%)
+    contrast(100%)
+    brightness(100%);
 
   transform: scale(1.18);
 }

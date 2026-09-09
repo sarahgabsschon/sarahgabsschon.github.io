@@ -773,3 +773,28 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* =====================================================
+   HERO IMAGE
+   ===================================================== */
+
+.hero-image {
+  margin: 55px 0 70px;
+  max-width: 760px;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-image figcaption {
+  margin-top: 10px;
+
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}

@@ -780,20 +780,20 @@ footer {
 
 /* =====================================================
    HERO GRID
-   Introduction on left, academic facts on right.
+   Wider visual side, compact academic sidebar.
    ===================================================== */
 
 .hero-grid {
   display: grid;
 
-  /* Left column is wider than the degree column */
-  grid-template-columns: minmax(0, 1.6fr) minmax(240px, 0.65fr);
+  grid-template-columns:
+    minmax(0, 1.95fr)
+    minmax(250px, 0.65fr);
 
-  gap: 90px;
+  gap: 55px;
+
   align-items: start;
 }
-
-
 /* =====================================================
    RIGHT-HAND DEGREE COLUMN
    ===================================================== */

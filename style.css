@@ -527,48 +527,80 @@ section {
 }
 
 
-/* Large project title */
+/* =========================================================
+   LARGE PROJECT TITLE
+   Example:
+   "E. coli resistance to bacterial predation"
+   ========================================================= */
+
 .project-detail h3 {
-  max-width: 700px;
+  max-width: 680px;
 
-  margin-bottom: 26px;
+  /* Less space below title */
+  margin-bottom: 22px;
 
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  /* Smaller than before */
+  font-size: clamp(2.2rem, 3.5vw, 3.1rem);
 
-  line-height: 1;
-  letter-spacing: -0.04em;
+  /* Tighter spacing between title lines */
+  line-height: 0.92;
+
+  letter-spacing: -0.035em;
 }
 
 
-/* Introductory project paragraph */
-.project-detail .lead {
-  max-width: 700px;
+/* =========================================================
+   INTRODUCTORY PROJECT PARAGRAPH
+   Example:
+   "Investigated how E. coli can become resistant..."
+   ========================================================= */
 
-  margin-bottom: 40px;
+.project-detail .lead {
+  max-width: 620px;
+
+  margin-bottom: 34px;
 
   color: var(--muted);
 
-  font-size: 1.15rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
+
+  /* Tighter than before */
+  line-height: 1.5;
 }
 
 
-.project-detail h4 {
-  margin:
-    32px 0
-    10px;
+/* =========================================================
+   SMALL SUBHEADINGS
+   Example:
+   RESEARCH QUESTION
+   METHODS
+   ========================================================= */
 
-  font-size: 0.85rem;
+.project-detail h4 {
+  /* Space above and below the small heading */
+  margin: 30px 0 8px;
+
+  /* Slightly larger than before */
+  font-size: 0.95rem;
+
+  font-weight: 700;
+
+  line-height: 1.2;
 
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 
-.project-detail p {
-  max-width: 700px;
-}
+/* =========================================================
+   NORMAL PROJECT TEXT
+   ========================================================= */
 
+.project-detail p {
+  max-width: 620px;
+
+  line-height: 1.55;
+}
 
 /* =========================================================
    12. PROJECT PROCESS / TIMELINE

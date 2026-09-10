@@ -833,17 +833,49 @@ footer {
 
 /* =========================================================
    16. TABLET / SMALL SCREEN
-   ---------------------------------------------------------
    Anything below 800px wide uses these rules.
    ========================================================= */
 
 @media (max-width: 800px) {
 
+
+  /* =====================================================
+     HERO — TABLET / MOBILE
+     Stack the main hero and education column vertically.
+     ===================================================== */
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+
+  /* Replace desktop vertical divider with horizontal divider */
+  .hero-facts {
+    border-left: none;
+
+    padding-left: 0;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--line);
+  }
+
+
+  /* Make the long metadata line fit better */
+  .eyebrow {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+  }
+
+
+  /* Your existing navigation rule */
   .nav-links {
     gap: 18px;
   }
 
 
+  /* Your existing hero spacing */
   .hero {
     padding:
       80px 0
@@ -851,40 +883,13 @@ footer {
   }
 
 
+  /* Your existing hero heading rule */
   .hero h1 {
     font-size: clamp(3rem, 12vw, 4.8rem);
   }
 
 
-  .about-grid {
-    grid-template-columns: 1fr;
-
-    gap: 50px;
-  }
-
-
-  .capabilities {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-
-  .outside-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-
-  .project-card {
-    grid-template-columns:
-      50px
-      minmax(0, 1fr);
-  }
-
-
-  .project-type {
-    grid-column: 2;
-  }
+  /* KEEP THE REST OF YOUR EXISTING RULES BELOW */
 }
 
 
@@ -976,25 +981,15 @@ footer {
 
 /* =====================================================
    HERO IMAGE TEASERS
-   Three research images used as visual project previews.
-
-   Their widths are deliberately slightly unequal.
-   This makes the row feel more like an editorial/archive
-   layout and less like three identical cards.
+   Three equal-width research images.
    ===================================================== */
 
 .hero-teasers {
   display: grid;
 
-  /* E. coli slightly wider,
-     Salmonella central,
-     histology slightly narrower */
-  grid-template-columns:
-    1.05fr
-    1fr
-    0.95fr;
+  /* All three teaser images have equal width */
+  grid-template-columns: repeat(3, 1fr);
 
-  /* Space between images */
   gap: 14px;
 
   /* Space between intro paragraph and image row */

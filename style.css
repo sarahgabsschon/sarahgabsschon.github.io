@@ -2,9 +2,6 @@
    1. GLOBAL VARIABLES
    ---------------------------------------------------------
    These are reusable values for the whole website.
-
-   If you want to change the main background, text color,
-   green accent, or maximum width, you can do it here once.
    ========================================================= */
 
 :root {
@@ -14,7 +11,6 @@
 
   --muted: #666963;
 
-  /* Slightly cooler, more archival/scientific */
   --accent: #355f43;
 
   --line: #d4d1c8;
@@ -29,7 +25,7 @@
    2. BASIC RESET
    ---------------------------------------------------------
    Browsers add default margins/padding.
-   This removes them so we control the spacing ourselves.
+   ovveride standart spacing and manually adjust
    ========================================================= */
 
 * {
@@ -48,7 +44,7 @@ html {
 /* =========================================================
    3. BODY
    ---------------------------------------------------------
-   Controls the basic appearance of the whole website.
+   basic appearance of the whole website.
    ========================================================= */
 
 body {
@@ -119,7 +115,7 @@ nav {
 }
 
 
-/* SARAH. in upper-left corner */
+/* S/26. in upper-left corner */
 .logo {
   font-size: 1rem;
   font-weight: 700;
@@ -127,7 +123,7 @@ nav {
 }
 
 
-/* Work / About / Outside the lab / Contact */
+/* Links upper*/
 .nav-links {
   display: flex;
   gap: 38px;
@@ -139,12 +135,7 @@ nav {
 /* =========================================================
    6. HERO / FIRST SCREEN
    ---------------------------------------------------------
-   This is the section containing:
 
-   MICROBIOLOGY...
-   I like figuring things out.
-   introductory paragraph
-   Explore my work
    ========================================================= */
 
 .hero {
@@ -180,8 +171,6 @@ nav {
    - never smaller than 3rem
    - usually about 6% of screen width
    - never larger than 5.5rem
-
-   Your previous maximum was much larger.
    ========================================================= */
 
 .hero h1 {
@@ -197,7 +186,7 @@ nav {
 
 
 /*
-   This is optional styling if the word "figuring"
+   optional styling if a word
    is italic in your HTML.
 */
 
@@ -264,7 +253,6 @@ nav {
    ---------------------------------------------------------
    Example:
    Based in Zürich
-   Biology × Data × Curiosity
    ========================================================= */
 
 .meta {
@@ -325,7 +313,7 @@ section {
 /* =========================================================
    8. PROJECT INDEX
    ---------------------------------------------------------
-   This controls the summary list of your projects.
+  controls the summary list of  projects.
    ========================================================= */
 
 .project-list {
@@ -333,8 +321,7 @@ section {
 }
 
 /*
-   Each project is arranged in three columns:
-
+   Orga:
    01 | project title/description | type
 */
 
@@ -369,8 +356,7 @@ section {
 
   font-size: 1.45rem;
 
-  /* 400 = normal, 700 = bold.
-     Whether 380 works depends on the font. */
+  /* 400 = normal, 700 = bold. */
   font-weight: 400;
 }
 
@@ -465,10 +451,6 @@ section {
 /* =========================================================
    10. CAPABILITIES
    ---------------------------------------------------------
-   Experimental biology
-   Biological data
-   Computational work
-   etc.
    ========================================================= */
 
 .capabilities {
@@ -528,7 +510,7 @@ section {
 
 /* =========================================================
    LARGE PROJECT TITLE
-   Example:
+   eg.
    "E. coli resistance to bacterial predation"
    ========================================================= */
 
@@ -539,7 +521,7 @@ section {
   margin-bottom: 22px;
 
   /* Smaller than before */
-  font-size: clamp(2.2rem, 3.5vw, 3.1rem);
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
 
   /* Tighter spacing between title lines */
   line-height: 0.92;
